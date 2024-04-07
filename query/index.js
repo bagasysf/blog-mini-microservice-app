@@ -11,12 +11,14 @@ const posts = {};
 
 const handleEvents = (type, data) => {
   if (type === 'PostCreated') {
+    console.log('Received Event: ', type);
     const { id, title } = data;
 
     posts[id] = { id, title, comments: [] };
   }
 
   if (type === 'CommentCreated') {
+    console.log('Received Event: ', type);
     const { id, content, postId, status } = data;
 
     const post = posts[postId];
